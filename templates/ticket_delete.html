@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmer la suppression</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1 class="title">Confirmer la suppression</h1>
+    <p>Êtes-vous sûr de vouloir supprimer ce ticket ?</p>
+    <form class="form-delete" method="post">
+        {% csrf_token %}
+        <button class="btn-delete" type="submit">Confirmer</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="tilte">Liste des tickets</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1 class="title">Liste des tickets</h1>
+    <ul class="list">
+        {% for ticket in object_list %}
+        <li>{{ ticket.intitule }} - {{ ticket.date }} - {{ ticket.montant }}
+            <button class="btn"><a href="{% url 'ticket-update' ticket.pk %}">Modifier</a></button>
+            <button class="btn"><a href="{% url 'ticket-delete' ticket.pk %}">Supprimer</a></button>
+        </li>
+        {% endfor %}
+    </ul>
+    <button class="btn btn-center">
+        <a href="{% url 'ticket-create' %}">Ajouter un ticket</a>
+    </button>
+    
+</body>
+</html>
